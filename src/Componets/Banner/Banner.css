@@ -1,0 +1,8 @@
+.banner_img{
+    background: url(https://i.ibb.co/Cb0rn0v/Banner01.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 85vh;
+}
