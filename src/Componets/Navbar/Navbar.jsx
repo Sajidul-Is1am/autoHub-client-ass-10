@@ -28,8 +28,8 @@ const Navbar = () => {
         {
             user &&
             <>
-                <li><NavLink to={'/mycard'}>Extra 1</NavLink></li>
-                <li><NavLink to={'/mycard'}>Extra 2</NavLink></li>
+                <li><NavLink to={'/extra1'}>Extra 1</NavLink></li>
+                <li><NavLink to={'/extra2'}>Extra 2</NavLink></li>
             </>
         }
     </div>
