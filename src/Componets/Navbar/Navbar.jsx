@@ -1,10 +1,23 @@
 import { Link, NavLink } from "react-router-dom";
 import './Navbar.css'
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 
 
 
 const Navbar = () => {
+    const { user,handleLogOut } = useContext(AuthContext)
+
+    const LogOut = () =>{
+        handleLogOut()
+        .then(resuls => {
+            console.log(resuls.user);
+        })
+        .catch(error => {
+            console.log(error.message);
+        })
+    }
     const navLink = <div className="lg:flex gap-10 navlink">
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/addproduct'}>Add Product</NavLink></li>
@@ -36,8 +49,12 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <div className="navbar-end">
-                        <NavLink to={'/login'}>Login</NavLink>
+                    <div className="navbar-end font-bold">
+                        {
+                            user ? <NavLink className={"btn"} onClick={LogOut} to={'/login'}>LogOut</NavLink> :
+                                <NavLink className={"btn"} to={'/login'}>Login</NavLink>
+
+                        }
                     </div>
                 </div>
             </div>
