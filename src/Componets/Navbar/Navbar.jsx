@@ -20,7 +20,10 @@ const Navbar = () => {
     }
     const navLink = <div className="lg:flex gap-10 navlink">
         <li><NavLink to={'/'}>Home</NavLink></li>
-        <li><NavLink to={'/addproduct'}>Add Product</NavLink></li>
+        {
+            user &&
+            <li><NavLink to={'/addproduct'}>Add Product</NavLink></li>
+        }
         <li><NavLink to={'/mycard'}>My Cart</NavLink></li>
         {
             user &&
