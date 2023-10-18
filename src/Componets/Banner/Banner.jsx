@@ -11,7 +11,7 @@ const Banner = () => {
                 <button className="btn bg-[#08213e] hover:bg-mainColor text-white border-none my-10">
                     See Ranking Car
                     <GiRank3 className='text-xl'></GiRank3>
-                    <PiPaperPlaneRightFill className='text-mainColor'></PiPaperPlaneRightFill>
+                    <PiPaperPlaneRightFill className='text-white'></PiPaperPlaneRightFill>
                 </button>
             </div>
         </div>

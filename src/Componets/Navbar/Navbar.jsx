@@ -7,23 +7,28 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 
 const Navbar = () => {
-    const { user,handleLogOut } = useContext(AuthContext)
+    const { user, handleLogOut } = useContext(AuthContext)
 
-    const LogOut = () =>{
+    const LogOut = () => {
         handleLogOut()
-        .then(resuls => {
-            console.log(resuls.user);
-        })
-        .catch(error => {
-            console.log(error.message);
-        })
+            .then(resuls => {
+                console.log(resuls.user);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
     const navLink = <div className="lg:flex gap-10 navlink">
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/addproduct'}>Add Product</NavLink></li>
         <li><NavLink to={'/mycard'}>My Cart</NavLink></li>
-        <li><NavLink to={'/mycard'}>Extra 1</NavLink></li>
-        <li><NavLink to={'/mycard'}>Extra 2</NavLink></li>
+        {
+            user &&
+            <>
+                <li><NavLink to={'/mycard'}>Extra 1</NavLink></li>
+                <li><NavLink to={'/mycard'}>Extra 2</NavLink></li>
+            </>
+        }
     </div>
     return (
         <div className="bg-[#08213e] py-6">
