@@ -9,6 +9,7 @@ import AddProduct from "../Pages/AddProduct/AddProduct";
 import MyCard from "../Pages/MyCard/MyCard";
 import AddBrandPersonal from "../Componets/AddBrandPersonal/AddBrandPersonal";
 import BrandAdvirticement from "../Componets/BrandAdvirticement/BrandAdvirticement";
+import UpdateProduct from "../Componets/UpdateProduct/UpdateProduct";
 
 
 const Route = createBrowserRouter([
@@ -45,6 +46,10 @@ const Route = createBrowserRouter([
                 path:'/products/:id',
                 element:<BrandAdvirticement></BrandAdvirticement>,
                 loader: ({params}) => fetch(`http://localhost:5000/products`)
+            },
+            {
+                path:'/update/:id',
+                element:<UpdateProduct></UpdateProduct>
             }
         ]
     },
