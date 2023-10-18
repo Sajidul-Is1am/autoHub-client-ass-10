@@ -8,6 +8,9 @@ export default {
     extend: {
       fontFamily: {
         'urbanist': ["font-family: 'Urbanist', sans-serif"]
+      },
+      colors:{
+        'mainColor': "#930000"
       }
     },
   },
