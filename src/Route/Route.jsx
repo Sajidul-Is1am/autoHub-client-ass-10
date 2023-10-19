@@ -10,16 +10,20 @@ import MyCard from "../Pages/MyCard/MyCard";
 import AddBrandPersonal from "../Componets/AddBrandPersonal/AddBrandPersonal";
 import BrandAdvirticement from "../Componets/BrandAdvirticement/BrandAdvirticement";
 import UpdateProduct from "../Componets/UpdateProduct/UpdateProduct";
+import Details from "../Pages/Details/Details";
+import PrivetRoute from "./PrivetRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 const Route = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
             },
             {
                 path: '/register',
@@ -30,26 +34,31 @@ const Route = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path:'/addproduct',
-                element:<AddProduct>`</AddProduct>
+                path: '/addproduct',
+                element: <PrivetRoute><AddProduct></AddProduct></PrivetRoute>
             },
             {
-                path:"/mycard",
-                element:<MyCard></MyCard>,
+                path: "/mycard",
+                element: <PrivetRoute><MyCard></MyCard></PrivetRoute>,
                 loader: () => fetch('')
             },
             {
-                path:'/addbrandpersonal',
-                element:<AddBrandPersonal></AddBrandPersonal>
+                path: '/addbrandpersonal',
+                element: <AddBrandPersonal></AddBrandPersonal>
             },
             {
-                path:'/products/:id',
-                element:<BrandAdvirticement></BrandAdvirticement>,
-                loader: ({params}) => fetch(`http://localhost:5000/products`)
+                path: '/products/:brandName',
+                element: <PrivetRoute><BrandAdvirticement></BrandAdvirticement></PrivetRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.brandName}`)
             },
             {
-                path:'/update/:id',
-                element:<UpdateProduct></UpdateProduct>
+                path: '/update/:id',
+                element: <PrivetRoute><UpdateProduct></UpdateProduct></PrivetRoute>,
+            },
+            {
+                path: '/products/details/:id',
+                element: <Details></Details>,
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
             }
         ]
     },

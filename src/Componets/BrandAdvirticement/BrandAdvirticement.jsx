@@ -1,11 +1,9 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import BrandAdvirticemnetItem from "../BrandAdvirticemnetItem/BrandAdvirticemnetItem";
 
 const BrandAdvirticement = () => {
-    const brandName = useParams();
-    const name = brandName.id;
     const AllProducts = useLoaderData();
-    const perBrandData = AllProducts.filter(item => item.brandname === name);
+    console.log(AllProducts);
     return (
         <div>
             <div>
@@ -42,7 +40,7 @@ const BrandAdvirticement = () => {
             </div>
             <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mx-4 gap-4 my-20">
                 {
-                    perBrandData.map(brand => <BrandAdvirticemnetItem key={brand._id} brand={brand}></BrandAdvirticemnetItem>)
+                    AllProducts.map(brand => <BrandAdvirticemnetItem key={brand._id} brand={brand}></BrandAdvirticemnetItem>)
                 }
             </div>
         </div>

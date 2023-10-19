@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const BrandAdvirticemnetItem = ({ brand }) => {
     const {_id, rating, price, category, brandname, name, image } = brand;
+    
     return (
         <div>
             <div className="card bg-base-100 shadow-xl rounded">
@@ -22,7 +23,7 @@ const BrandAdvirticemnetItem = ({ brand }) => {
                         <div className="badge badge-outline p-4"><FcRating className='mr-2'></FcRating>{rating}</div>
                     </div>
                     <div className='flex justify-between mt-2'>
-                        <Link to={'/details'}>
+                        <Link to={ `/products/details/${name}`}>
                             <button className="btn rounded-full">
                                 Details
                                 <TbListDetails className='text-mainColor'></TbListDetails>

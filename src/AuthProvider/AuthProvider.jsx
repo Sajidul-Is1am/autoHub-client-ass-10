@@ -1,40 +1,50 @@
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { auth } from "../Firebase/Firebase.config";
 
 export const AuthContext = createContext(null);
 
-const AuthProvider = ({children}) => {
-    const [user,setUser] = useState(null)
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
 
     // email and password registration start
-    const handleRegistration = (email,password) =>{
-        return createUserWithEmailAndPassword(auth,email,password)
+    const handleRegistration = (email, password) => {
+        setLoading(true)
+        return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // logout
-    const handleLogOut = () =>{
+    const handleLogOut = () => {
+        setLoading(true)
         return signOut(auth)
     }
 
     // email password login
-    const handleLogin = (email,password) =>{
-        return signInWithEmailAndPassword(auth,email,password)
+    const handleLogin = (email, password) => {
+        setLoading(true)
+        return signInWithEmailAndPassword(auth, email, password)
     }
 
     // mannage user
 
-    onAuthStateChanged(auth,(currentUser) =>{
-        setUser(currentUser)
-    })
+    useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser)
+            setLoading(false)
+        })
+        return () => unsubscribe()
+    }, [])
+
+
 
 
     // google login 
     const provider = new GoogleAuthProvider()
 
-    const handleGoogleLogin = () =>{
-       return signInWithPopup(auth,provider)
+    const handleGoogleLogin = () => {
+        return signInWithPopup(auth, provider)
     }
 
 
@@ -48,7 +58,8 @@ const AuthProvider = ({children}) => {
         handleLogin,
         handleLogOut,
         handleGoogleLogin,
-        user
+        user,
+        loading
     }
 
     return (

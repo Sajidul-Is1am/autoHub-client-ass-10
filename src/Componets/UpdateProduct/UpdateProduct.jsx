@@ -1,32 +1,22 @@
 
 const UpdateProduct = () => {
 
+
+
     const handleSubmit = event => {
+
         event.preventDefault();
         const form = event.target;
         const image = form.image.value;
         const name = form.name.value;
         const brandname = form.brandname.value;
         const category = form.category.value;
-        const description = form.description.value;
         const price = form.price.value;
         const rating = form.rating.value;
 
-        const productInfo = { image, name, brandname, category, description, price, rating }
-        fetch('http://localhost:5000/products', {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(productInfo)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.acknowledged == true) {
-                    form.reset()
-                }
-                console.log(data);
-            })
+        const productInfo = { image, name, brandname, category, price, rating }
+
+       
     }
     return (
         <div className="lg:mx-96 md:mx-16 mx-10 rounded-xl my-8 bg-gray-200">
@@ -40,7 +30,7 @@ const UpdateProduct = () => {
                     <input type="text" placeholder="Price" name="price" className="input input-bordered " />
                     <input type="text" placeholder="Rating" name="rating" className="input input-bordered " />
                 </div>
-                <button type="submit" className="btn block mx-auto mt-10">Add Product</button>
+                <button type="submit" className="btn block mx-auto mt-10">Submit</button>
 
             </form>
         </div>
