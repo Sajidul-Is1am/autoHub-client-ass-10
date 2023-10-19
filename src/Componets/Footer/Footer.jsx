@@ -14,8 +14,6 @@ const Footer = () => {
                         <a className="link link-hover">Home</a>
                         <a className="link link-hover">Add Product</a>
                         <a className="link link-hover">My Cart</a>
-                        <a className="link link-hover">Extra 1</a>
-                        <a className="link link-hover">Extra 2</a>
                     </nav>
                     <nav>
                         <header className="footer-title">Contact Info</header>
