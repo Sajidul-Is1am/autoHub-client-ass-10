@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 
 const BrandAdvirticemnetItem = ({ brand }) => {
     const {_id, rating, price, category, brandname, name, image } = brand;
+
+    console.log(brand);
     
     return (
         <div>

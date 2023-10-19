@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 
 const BrandItem = ({item}) => {
     const {_id,BrandName,BrandImage} = item;
-    console.log(BrandName);
-    // console.log(BrandName);
     return (
         <div>
             <Link to={ `/products/${BrandName}`}>

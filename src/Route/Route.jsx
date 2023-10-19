@@ -19,7 +19,7 @@ const Route = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
-        errorElement:<ErrorPage></ErrorPage>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -40,7 +40,7 @@ const Route = createBrowserRouter([
             {
                 path: "/mycard",
                 element: <PrivetRoute><MyCard></MyCard></PrivetRoute>,
-                loader: () => fetch('')
+                loader: () => fetch('http://localhost:5000/products/mycard')
             },
             {
                 path: '/addbrandpersonal',
@@ -48,18 +48,18 @@ const Route = createBrowserRouter([
             },
             {
                 path: '/products/:brandName',
-                element: <PrivetRoute><BrandAdvirticement></BrandAdvirticement></PrivetRoute>,
+                element: <BrandAdvirticement></BrandAdvirticement>,
                 loader: ({ params }) => fetch(`http://localhost:5000/products/${params.brandName}`)
             },
             {
                 path: '/update/:id',
                 element: <PrivetRoute><UpdateProduct></UpdateProduct></PrivetRoute>,
-                loader:() => fetch(`http://localhost:5000/products`)
+                loader: () => fetch(`http://localhost:5000/products`)
             },
             {
-                path: '/products/details/:id',
-                element: <Details></Details>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+                path: '/products/details/:model',
+                element: <PrivetRoute><Details></Details></PrivetRoute>,
+                loader: () => fetch(`http://localhost:5000/products`)
             }
         ]
     },

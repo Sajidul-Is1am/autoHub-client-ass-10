@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 const AddProduct = () => {
 
     const handleSubmit = event => {
@@ -22,6 +24,7 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged == true) {
+                    toast.success('Successfully Added Product')
                     form.reset()
                 }
                 console.log(data);

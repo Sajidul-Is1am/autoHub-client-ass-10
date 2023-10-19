@@ -2,17 +2,18 @@ import { Link, NavLink } from "react-router-dom";
 import './Navbar.css'
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 
 
 
 const Navbar = () => {
     const { user, handleLogOut } = useContext(AuthContext)
-    console.log(user);
 
     const LogOut = () => {
         handleLogOut()
             .then(resuls => {
+                toast.success('Successfully LogOut')
                 console.log(resuls.user);
             })
             .catch(error => {
@@ -21,18 +22,9 @@ const Navbar = () => {
     }
     const navLink = <div className="lg:flex gap-10 navlink">
         <li><NavLink to={'/'}>Home</NavLink></li>
-        {
-            user &&
-            <li><NavLink to={'/addproduct'}>Add Product</NavLink></li>
-        }
+        <li><NavLink to={'/addproduct'}>Add Product</NavLink></li>
         <li><NavLink to={'/mycard'}>My Cart</NavLink></li>
-        {
-            user &&
-            <>
-                <li><NavLink to={'/extra1'}>Extra 1</NavLink></li>
-                <li><NavLink to={'/extra2'}>Extra 2</NavLink></li>
-            </>
-        }
+
     </div>
     return (
         <div className="bg-[#08213e] py-6">
@@ -61,8 +53,8 @@ const Navbar = () => {
                     <div className="navbar-end font-bold">
                         {
                             user ? <div className="flex items-center">
-                               <div>
-                                    <img className="w-10 h-10 rounded-full" src={user.photoURL} /> 
+                                <div>
+                                    <img className="w-10 h-10 rounded-full" src={user.photoURL} />
                                 </div>
                                 <p className="mx-2">{user.displayName}</p>
                                 <NavLink className={"btn"} onClick={LogOut} to={'/login'}>LogOut</NavLink>
