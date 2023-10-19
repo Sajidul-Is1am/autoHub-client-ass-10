@@ -1,7 +1,14 @@
+import toast from "react-hot-toast";
+import { json, useLoaderData, useParams } from "react-router-dom";
 
 const UpdateProduct = () => {
 
-
+    const {id} = useParams();
+    const productData = useLoaderData();
+    
+    const updatedProduct = productData.find(singleProduct => singleProduct._id === id);
+    console.log(updatedProduct);
+    
 
     const handleSubmit = event => {
 
@@ -16,6 +23,19 @@ const UpdateProduct = () => {
 
         const productInfo = { image, name, brandname, category, price, rating }
 
+        fetch(`http://localhost:5000/products/${id}`,{
+            method:"PUT",
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify(productInfo)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            toast.success('Successfully Update Product')
+        })
+
        
     }
     return (
@@ -23,12 +43,12 @@ const UpdateProduct = () => {
             <h3 className="font-bold text-center text-4xl py-10 text-purple-600">Update Your Product</h3>
             <form onSubmit={handleSubmit} className="p-10 border">
                 <div className="grid justify-center gap-6 md:grid-cols-2 grid-cols-1 ">
-                    <input type="text" placeholder="Image Link" name="image" className="input input-bordered" />
-                    <input type="text" placeholder="Name" name="name" className="input input-bordered " />
-                    <input type="text" placeholder="Brand Name" name="brandname" className="input input-bordered " />
-                    <input type="text" placeholder=" category" name="category" className="input input-bordered ;lg:col-span-2" />
-                    <input type="text" placeholder="Price" name="price" className="input input-bordered " />
-                    <input type="text" placeholder="Rating" name="rating" className="input input-bordered " />
+                    <input type="text" placeholder="Image Link" name="image" defaultValue={updatedProduct.image} className="input input-bordered" />
+                    <input type="text" placeholder="Name" name="name" defaultValue={updatedProduct.name} className="input input-bordered " />
+                    <input type="text" placeholder="Brand Name" defaultValue={updatedProduct.brandname} name="brandname" className="input input-bordered " />
+                    <input type="text" placeholder=" category" defaultValue={updatedProduct.category} name="category" className="input input-bordered ;lg:col-span-2" />
+                    <input type="text" placeholder="Price" defaultValue={updatedProduct.price} name="price" className="input input-bordered " />
+                    <input type="text" placeholder="Rating" defaultValue={updatedProduct.rating} name="rating" className="input input-bordered " />
                 </div>
                 <button type="submit" className="btn block mx-auto mt-10">Submit</button>
 
