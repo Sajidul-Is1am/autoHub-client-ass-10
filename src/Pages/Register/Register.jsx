@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 
 const Register = () => {
-    const { handleRegistration } = useContext(AuthContext)
+    const { handleRegistration, handleUpdate } = useContext(AuthContext)
     const ValidationPassword = /(?=.*[A-Z])(?=.*[!@#$%^&*])/
 
     const navigate = useNavigate()
@@ -22,21 +22,30 @@ const Register = () => {
         if (password.length < 6) {
             return toast.error('Password should be more than 6 characters');
         }
-        else if(!ValidationPassword.test(password)){
+        else if (!ValidationPassword.test(password)) {
             return toast.error("Give a stronger password");
         }
 
         handleRegistration(email, password)
             .then((resuls) => {
-                toast.success('Successfully Registared')
-                form.reset();
-                navigate('/')
-                
+                handleUpdate(userName, imglink)
+                    .then(results => {
+                        console.log(results.user)
+                        toast.success('Successfully Registared')
+                        form.reset();
+                        navigate('/')
+                    })
+
             })
             .catch((error) => {
                 console.log(error.message);
                 toast.error(error.message);
             });
+        // 
+
+
+
+
     }
 
     return (

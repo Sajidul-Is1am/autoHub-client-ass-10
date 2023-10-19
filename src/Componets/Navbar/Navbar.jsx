@@ -60,7 +60,13 @@ const Navbar = () => {
                     </div>
                     <div className="navbar-end font-bold">
                         {
-                            user ? <NavLink className={"btn"} onClick={LogOut} to={'/login'}>LogOut</NavLink> :
+                            user ? <div className="flex items-center">
+                               <div>
+                                    <img className="w-10 h-10 rounded-full" src={user.photoURL} /> 
+                                </div>
+                                <p className="mx-2">{user.displayName}</p>
+                                <NavLink className={"btn"} onClick={LogOut} to={'/login'}>LogOut</NavLink>
+                            </div> :
                                 <NavLink className={"btn"} to={'/login'}>Login</NavLink>
 
                         }
