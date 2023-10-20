@@ -13,6 +13,9 @@ export default {
         'mainColor': "#930000"
       }
     },
-  },
+  }, daisyui: {
+    themes: [
+      "light",
+      "dark",]},
   plugins: [require("daisyui")],
 }

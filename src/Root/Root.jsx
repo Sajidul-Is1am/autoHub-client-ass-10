@@ -1,13 +1,16 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Componets/Navbar/Navbar";
+import { useState } from "react";
 
 
 const Root = () => {
+    const [darkMode, setDarkMode]=useState(false)
+    console.log(darkMode);
     return (
-        <div className="font-urbanist">
-            <Navbar></Navbar>
+        <div data-theme={darkMode?"dark":"light"} className="font-urbanist">
+            <Navbar darkMode={darkMode} setDarkMode={setDarkMode}></Navbar>
             <Outlet></Outlet>
-        </div>
+        </div> 
     );
 };
 
