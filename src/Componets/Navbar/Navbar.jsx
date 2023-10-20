@@ -34,7 +34,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
       <li>
         <NavLink to={"/mycard"}>My Cart</NavLink>
       </li>
-      <li className="capitalize cursor-pointer hover:text-red-300" onClick={handleToggle}>{darkMode?'light':'dark'}</li>
+      <li className="capitalize cursor-pointer hover:text-red-600" onClick={handleToggle}>{darkMode?'light':'dark'}</li>
     </div>
   );
   return (

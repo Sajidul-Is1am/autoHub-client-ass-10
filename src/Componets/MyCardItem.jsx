@@ -19,7 +19,7 @@ const MyCardItem = ({ cardItem, setMyproducts, MyProducts }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/products/mycard/${_id}`, {
+                fetch(`https://autohub-brand-shop-server-1xi8c9bdl-mds040772-gmailcom.vercel.app/products/mycard/${_id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())

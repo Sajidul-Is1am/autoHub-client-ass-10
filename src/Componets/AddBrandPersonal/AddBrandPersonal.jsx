@@ -7,7 +7,7 @@ const AddBrandPersonal = () => {
         const BrandName = form.brandname.value;
 
         const BrandInfo = {BrandImage,BrandName }
-        fetch('http://localhost:5000/brands', {
+        fetch('https://autohub-brand-shop-server-1xi8c9bdl-mds040772-gmailcom.vercel.app/brands', {
             method: "POST",
             headers: {
                 "content-type": "application/json",

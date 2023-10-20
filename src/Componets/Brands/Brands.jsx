@@ -5,7 +5,7 @@ const Brands = () => {
     const [brands,setBrands] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/brands')
+        fetch('https://autohub-brand-shop-server-1xi8c9bdl-mds040772-gmailcom.vercel.app/brands')
         .then(res => res.json())
         .then(data => setBrands(data))
     },[])

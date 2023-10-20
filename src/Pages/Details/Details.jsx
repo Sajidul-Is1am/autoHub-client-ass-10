@@ -12,7 +12,7 @@ const Details = () => {
     const addedData = { name, rating, price, category, brandname, image, description }
 
     const handleAddToCard = () => {
-        fetch(`http://localhost:5000/products/mycard`, {
+        fetch(`https://autohub-brand-shop-server-1xi8c9bdl-mds040772-gmailcom.vercel.app/products/mycard`, {
             method: "POST",
             headers: {
                 'content-type': "application/json",

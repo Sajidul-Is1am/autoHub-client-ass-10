@@ -49,17 +49,17 @@ const Route = createBrowserRouter([
             {
                 path: '/products/:brandName',
                 element: <BrandAdvirticement></BrandAdvirticement>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.brandName}`)
+                loader: ({ params }) => fetch(`https://autohub-brand-shop-server-1xi8c9bdl-mds040772-gmailcom.vercel.app/products/${params.brandName}`)
             },
             {
                 path: '/update/:id',
                 element: <PrivetRoute><UpdateProduct></UpdateProduct></PrivetRoute>,
-                loader: () => fetch(`http://localhost:5000/products`)
+                loader: () => fetch(`https://autohub-brand-shop-server-1xi8c9bdl-mds040772-gmailcom.vercel.app/products`)
             },
             {
                 path: '/products/details/:model',
                 element: <PrivetRoute><Details></Details></PrivetRoute>,
-                loader: () => fetch(`http://localhost:5000/products`)
+                loader: () => fetch(`https://autohub-brand-shop-server-1xi8c9bdl-mds040772-gmailcom.vercel.app/products`)
             }
         ]
     },
