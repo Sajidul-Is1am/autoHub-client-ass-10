@@ -14,7 +14,7 @@ const AddProduct = () => {
         const rating = form.rating.value;
 
         const productInfo = { image, name, brandname, category, description, price, rating }
-        fetch('http://localhost:5000/products', {
+        fetch('https://autohub-brand-shop-server-ch57x3wps-mds040772-gmailcom.vercel.app', {
             method: "POST",
             headers: {
                 "content-type": "application/json",

@@ -7,7 +7,7 @@ const MyCardItem = ({ cardItem, setMyproducts, loadedProduct }) => {
 
     const handleDelete = _id => {
 
-        fetch(`http://localhost:5000/products/mycard/${_id}`, {
+        fetch(`https://autohub-brand-shop-server-ch57x3wps-mds040772-gmailcom.vercel.app/mycard/${_id}`, {
             method: "DELETE",
         })
             .then(res => res.json())

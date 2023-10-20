@@ -23,7 +23,7 @@ const UpdateProduct = () => {
 
         const productInfo = { image, name, brandname, category, price, rating }
 
-        fetch(`http://localhost:5000/products/${id}`,{
+        fetch(`https://autohub-brand-shop-server-ch57x3wps-mds040772-gmailcom.vercel.app/${id}`,{
             method:"PUT",
             headers:{
                 "content-type":"application/json"

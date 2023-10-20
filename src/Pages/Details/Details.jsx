@@ -11,7 +11,7 @@ const Details = () => {
     const addedData = { name, rating, price, category, brandname, image, description }
 
     const handleAddToCard = () => {
-        fetch(`http://localhost:5000/products/mycard`, {
+        fetch(`https://autohub-brand-shop-server-ch57x3wps-mds040772-gmailcom.vercel.app/mycard`, {
             method: "POST",
             headers: {
                 'content-type': "application/json",
@@ -28,7 +28,7 @@ const Details = () => {
     return (
         <div className="grid lg:grid-cols-2 grid-cols-1 lg:mx-24 md:mx-16 mx-10 gap-10 mt-20 items-center">
             <div className="">
-                <img src={image} alt="" className="h-[450px]" />
+                <img src={image} alt="" className="h-[450px] w-full" />
             </div>
             <div className="space-y-6">
                 <h4 className="text-xl flex items-center gap-3"><span className="text-2xl font-bold">Car Model : </span> {name}</h4>
