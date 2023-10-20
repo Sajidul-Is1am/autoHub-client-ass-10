@@ -1,14 +1,20 @@
-import { useLoaderData } from "react-router-dom";
 import MyCardItem from "../../Componets/MyCardItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../../Componets/Footer/Footer";
 
 const MyCard = () => {
-    const loadedProduct = useLoaderData();
-    console.log(loadedProduct);
+   
+    const [MyProducts, setMyproducts] = useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:5000/products/mycard')
+        .then(res=>res.json())
+        .then(data=>{
+            
+            setMyproducts(data)
+        })
+    },[MyProducts])
 
     // console.log(loadedProduct);
-    const [MyProducts, setMyproducts] = useState(loadedProduct);
 
     return (
         <div>
@@ -19,7 +25,7 @@ const MyCard = () => {
                         MyProducts.map(cardItem => <MyCardItem
                             key={cardItem._id}
                             cardItem={cardItem}
-                            loadedProduct={loadedProduct}
+                            loadedProduct={MyProducts}
                             setMyproducts={setMyproducts}
                         ></MyCardItem>)
                     }

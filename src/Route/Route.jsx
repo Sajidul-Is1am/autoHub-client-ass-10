@@ -40,7 +40,7 @@ const Route = createBrowserRouter([
             {
                 path: "/mycard",
                 element: <PrivetRoute><MyCard></MyCard></PrivetRoute>,
-                loader: () => fetch('http://localhost:5000/products/mycard')
+               
             },
             {
                 path: '/addbrandpersonal',

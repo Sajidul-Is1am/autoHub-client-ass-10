@@ -1,7 +1,7 @@
 import { MdDelete } from 'react-icons/md'
 import Swal from 'sweetalert2';
 
-const MyCardItem = ({ cardItem, setMyproducts, loadedProduct }) => {
+const MyCardItem = ({ cardItem, setMyproducts, MyProducts }) => {
     const { _id, name, rating, price, category, brandname, image } = cardItem;
 
 
@@ -30,7 +30,7 @@ const MyCardItem = ({ cardItem, setMyproducts, loadedProduct }) => {
                                 'Your file has been deleted.',
                                 'success'
                             )
-                            const remaining = loadedProduct.filter(user => user._id !== _id);
+                            const remaining = MyProducts.filter(user => user._id !== _id);
                             setMyproducts(remaining)
                         }
                     })
