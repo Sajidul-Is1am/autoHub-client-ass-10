@@ -28,12 +28,16 @@ const Register = () => {
 
         handleRegistration(email, password)
             .then((resuls) => {
+
                 handleUpdate(userName, imglink)
-                    .then(results => {
-                        console.log(results.user)
+                    .then(() => {
+                        console.log(resuls.user);
                         toast.success('Successfully Registared')
                         form.reset();
                         navigate('/')
+                    })
+                    .catch(error => {
+                        console.log(error.message);
                     })
 
             })

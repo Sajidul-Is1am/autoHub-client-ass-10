@@ -8,9 +8,9 @@ const PowerFul = () => {
             <div className="grid lg:grid-cols-3 grid-cols-1 gap-6 items-center  lg:mx-24 md:mx-16 mx-10">
                 <div className="col-span-2">
                     <div className=" mb-8">
-                        <h2 className="text-7xl font-bold uppercase">Powerful</h2>
-                        <h3 className="text-3xl my-3">Handcrafted Engine</h3>
-                        <p className="text-xl">GLA999 comes with 999 horsepower motor. The Engine will get up to speed of 180 mph in seconds.</p>
+                        <h2 className="lg:text-7xl text-4xl font-bold uppercase">Powerful</h2>
+                        <h3 className="lg:text-3xl text-xl my-3">Handcrafted Engine</h3>
+                        <p className="lg:text-xl text-base">GLA999 comes with 999 horsepower motor. The Engine will get up to speed of 180 mph in seconds.</p>
                     </div>
                     <div className="grid lg:grid-cols-3 grid-cols-1 gap-6 my-6 w-full text-center">   
                         <div className="card shadow-xl border-2 border-rose-600 p-4">

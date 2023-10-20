@@ -1,11 +1,14 @@
 import { useLoaderData } from "react-router-dom";
 import MyCardItem from "../../Componets/MyCardItem";
 import { useState } from "react";
+import Footer from "../../Componets/Footer/Footer";
 
 const MyCard = () => {
     const loadedProduct = useLoaderData();
+    console.log(loadedProduct);
+
     // console.log(loadedProduct);
-    const [MyProducts, setMyproducts] = useState(loadedProduct)
+    const [MyProducts, setMyproducts] = useState(loadedProduct);
 
     return (
         <div>
@@ -16,12 +19,13 @@ const MyCard = () => {
                         MyProducts.map(cardItem => <MyCardItem
                             key={cardItem._id}
                             cardItem={cardItem}
-                            loadedProduct={loadedProduct} 
+                            loadedProduct={loadedProduct}
                             setMyproducts={setMyproducts}
                         ></MyCardItem>)
                     }
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

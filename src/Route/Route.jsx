@@ -40,7 +40,7 @@ const Route = createBrowserRouter([
             {
                 path: "/mycard",
                 element: <PrivetRoute><MyCard></MyCard></PrivetRoute>,
-                loader: () => fetch('https://autohub-brand-shop-server-ch57x3wps-mds040772-gmailcom.vercel.app/mycard')
+                loader: () => fetch('http://localhost:5000/products/mycard')
             },
             {
                 path: '/addbrandpersonal',
@@ -49,17 +49,17 @@ const Route = createBrowserRouter([
             {
                 path: '/products/:brandName',
                 element: <BrandAdvirticement></BrandAdvirticement>,
-                loader: ({ params }) => fetch(`https://autohub-brand-shop-server-ch57x3wps-mds040772-gmailcom.vercel.app/${params.brandName}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.brandName}`)
             },
             {
                 path: '/update/:id',
                 element: <PrivetRoute><UpdateProduct></UpdateProduct></PrivetRoute>,
-                loader: () => fetch(`https://autohub-brand-shop-server-ch57x3wps-mds040772-gmailcom.vercel.app`)
+                loader: () => fetch(`http://localhost:5000/products`)
             },
             {
                 path: '/products/details/:model',
                 element: <PrivetRoute><Details></Details></PrivetRoute>,
-                loader: () => fetch(`https://autohub-brand-shop-server-ch57x3wps-mds040772-gmailcom.vercel.app`)
+                loader: () => fetch(`http://localhost:5000/products`)
             }
         ]
     },

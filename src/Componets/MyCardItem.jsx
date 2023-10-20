@@ -7,32 +7,37 @@ const MyCardItem = ({ cardItem, setMyproducts, loadedProduct }) => {
 
     const handleDelete = _id => {
 
-        fetch(`https://autohub-brand-shop-server-ch57x3wps-mds040772-gmailcom.vercel.app/mycard/${_id}`, {
-            method: "DELETE",
-        })
-            .then(res => res.json())
-            .then(data => {
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                        )
-                    }
+
+        //==================
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/products/mycard/${_id}`, {
+                    method: "DELETE",
                 })
-                // const lastedCardItem = loadedProduct.filter(lastedCard => lastedCard._id)
-                // console.log(lastedCardItem);
-                
-            })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                            const remaining = loadedProduct.filter(user => user._id !== _id);
+                            setMyproducts(remaining)
+                        }
+                    })
+
+            }
+        })
+
     }
     return (
         <div>

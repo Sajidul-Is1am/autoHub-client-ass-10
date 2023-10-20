@@ -23,7 +23,7 @@ const UpdateProduct = () => {
 
         const productInfo = { image, name, brandname, category, price, rating }
 
-        fetch(`https://autohub-brand-shop-server-ch57x3wps-mds040772-gmailcom.vercel.app/${id}`,{
+        fetch(`http://localhost:5000/products/${id}`,{
             method:"PUT",
             headers:{
                 "content-type":"application/json"
@@ -40,7 +40,7 @@ const UpdateProduct = () => {
     }
     return (
         <div className="lg:mx-96 md:mx-16 mx-10 rounded-xl my-8 bg-gray-200">
-            <h3 className="font-bold text-center text-4xl py-10 text-purple-600">Update Your Product</h3>
+            <h3 className="font-bold text-center lg:text-4xl text-2xl lg:py-10 py-6 text-purple-600">Update Your Product</h3>
             <form onSubmit={handleSubmit} className="p-10 border">
                 <div className="grid justify-center gap-6 md:grid-cols-2 grid-cols-1 ">
                     <input type="text" placeholder="Image Link" name="image" defaultValue={updatedProduct.image} className="input input-bordered" />

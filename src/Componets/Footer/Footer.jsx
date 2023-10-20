@@ -17,9 +17,9 @@ const Footer = () => {
                     </nav>
                     <nav>
                         <header className="footer-title">Contact Info</header>
-                        <a className="link link-hover">Phone</a>
-                        <a className="link link-hover">Email</a>
-                        <a className="link link-hover">Address</a>
+                        <a className="link link-hover">Phone : +0124520163</a>
+                        <a className="link link-hover">Email : username@gmail.com</a>
+                        <a className="link link-hover">Address : Dhaka,1/2 raod</a>
                     </nav>
                     <form className="col-span-2 text-white">
                         <header className="footer-title">Subscribe</header>
