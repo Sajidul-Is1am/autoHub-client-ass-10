@@ -3,7 +3,7 @@ import Navbar from "../Componets/Navbar/Navbar";
 import { useState } from "react";
 
 
-const Root = () => {
+const Layout = () => {
     const [darkMode, setDarkMode]=useState(false)
     console.log(darkMode);
     return (
@@ -14,4 +14,4 @@ const Root = () => {
     );
 };
 
-export default Root;
+export default Layout;

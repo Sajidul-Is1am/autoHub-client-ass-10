@@ -1,11 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
-import './Navbar.css'
+import "./Navbar.css";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
-
-
-
 
 const Navbar = ({ darkMode, setDarkMode }) => {
   const { user, handleLogOut } = useContext(AuthContext);
@@ -34,11 +31,21 @@ const Navbar = ({ darkMode, setDarkMode }) => {
       <li>
         <NavLink to={"/mycard"}>My Cart</NavLink>
       </li>
-      <li className="capitalize cursor-pointer hover:text-red-600" onClick={handleToggle}>{darkMode?'light':'dark'}</li>
+      { user?
+        <li>
+          <NavLink to={"/dashboard"}>DashBoard</NavLink>
+        </li>:''
+      }
+      <li
+        className="capitalize cursor-pointer hover:text-red-600"
+        onClick={handleToggle}
+      >
+        {darkMode ? "light" : "dark"}
+      </li>
     </div>
   );
   return (
-    <div className="bg-[#08213e] py-6">
+    <div className="bg-[#08213e] py-6 navLink">
       <div className="text-white lg:mx-24 md:mx-16 mx-10">
         <div className="navbar w-full">
           <div className="navbar-start">
